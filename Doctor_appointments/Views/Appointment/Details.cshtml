@@ -1,0 +1,61 @@
+﻿
+@model Doctor_appointments.Models.Appointment
+
+@{
+    ViewData["Title"] = "Appointment Details";
+}
+
+<h1 class="text-center text-primary my-4">Appointment Details</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <h4 class="card-title text-center text-secondary mb-4">Appointment Information</h4>
+                <dl class="row">
+                    <dt class="col-sm-3">Appointment ID</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.AppointmentId)</dd>
+
+                    <dt class="col-sm-3">Patient Name</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.PatientName)</dd>
+
+                    <dt class="col-sm-3">Doctor Name</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Doctor.Name)</dd>
+
+                    <dt class="col-sm-3">Description</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Description)</dd>
+
+                    <dt class="col-sm-3">Appointment Date</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.AppointmentDate)</dd>
+
+                    <dt class="col-sm-3">Start Time</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.StartTime)</dd>
+
+                    <dt class="col-sm-3">End Time</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.EndTime)</dd>
+
+                    <dt class="col-sm-3">Total Fees</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.TotalFees)</dd>
+
+                    <dt class="col-sm-3">Paid Fees</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.PaidFees)</dd>
+
+                    <dt class="col-sm-3">Remaining Fees</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.RemainingFees)</dd>
+
+                    <dt class="col-sm-3">Total Appointment Time</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.TotalAppointmentTime)</dd>
+                </dl>
+
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Edit" asp-route-id="@Model.AppointmentId" class="btn btn-warning">
+                        <i class="bi bi-pencil-square"></i> Edit
+                    </a>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left-circle"></i> Back to List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

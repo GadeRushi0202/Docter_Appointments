@@ -1,0 +1,47 @@
+﻿@model Doctor_appointments.Models.Doctor
+
+@{
+    ViewData["Title"] = "Doctor Details";
+}
+
+<h1 class="text-center text-primary mb-4">Doctor Details</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <h4 class="card-title text-center text-secondary">Doctor Information</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4 text-secondary fw-bold">Doctor ID</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.DoctorId)</dd>
+
+                    <dt class="col-sm-4 text-secondary fw-bold">Name</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Name)</dd>
+
+                    <dt class="col-sm-4 text-secondary fw-bold">Fees Per Hour</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.FeesPerHour)</dd>
+
+                    <dt class="col-sm-4 text-secondary fw-bold">Mobile Number</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.MobileNumber)</dd>
+
+                    <dt class="col-sm-4 text-secondary fw-bold">Experience</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Experience)</dd>
+
+                    <dt class="col-sm-4 text-secondary fw-bold">Speciality</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Speciality)</dd>
+
+                    <dt class="col-sm-4 text-secondary fw-bold">Code</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Code)</dd>
+                </dl>
+
+                <div class="d-flex justify-content-between mt-4">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.DoctorId }, new { @class = "btn btn-warning" })
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left-circle"></i> Back to List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

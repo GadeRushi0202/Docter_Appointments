@@ -1,0 +1,68 @@
+﻿
+@model IEnumerable<Doctor_appointments.Models.Appointment>
+
+@{
+    ViewData["Title"] = "Appointments";
+}
+
+<h1 class="text-center text-primary my-4">Appointments</h1>
+
+<p class="text-end mb-3">
+    <a asp-action="Create" class="btn btn-success">
+        <i class="bi bi-plus-circle"></i> Create New
+    </a>
+</p>
+
+<div class="card shadow-lg">
+    <div class="card-body">
+        <table class="table table-bordered table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().PatientName)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Doctor.Name)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().Description)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().AppointmentDate)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().StartTime)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().EndTime)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().TotalFees)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().PaidFees)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().RemainingFees)</th>
+                    <th>@Html.DisplayNameFor(model => model.FirstOrDefault().TotalAppointmentTime)</th>
+                    <th class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.AppointmentId)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PatientName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Doctor.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AppointmentDate)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StartTime)</td>
+                        <td>@Html.DisplayFor(modelItem => item.EndTime)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TotalFees)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PaidFees)</td>
+                        <td>@Html.DisplayFor(modelItem => item.RemainingFees)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TotalAppointmentTime)</td>
+                        <td class="text-center">
+                            <div class="d-flex flex-column">
+                                <a asp-action="Edit" asp-route-id="@item.AppointmentId" class="btn btn-warning btn-sm mb-2">
+                                    <i class="bi bi-pencil-square"></i> Edit
+                                </a>
+                                <a asp-action="Details" asp-route-id="@item.AppointmentId" class="btn btn-info btn-sm mb-2 text-white">
+                                    <i class="bi bi-info-circle"></i> Details
+                                </a>
+                                <a asp-action="Delete" asp-route-id="@item.AppointmentId" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-trash"></i> Delete
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+﻿
+@model Doctor_appointments.Models.Appointment
+
+@{
+    ViewData["Title"] = "Edit Appointment";
+}
+
+<h1 class="text-center text-primary my-4">Edit Appointment</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <h4 class="card-title text-center text-secondary mb-4">Appointment Information</h4>
+
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="AppointmentId" class="control-label"></label>
+                        <input asp-for="AppointmentId" class="form-control" readonly />
+                        <span asp-validation-for="AppointmentId" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="PatientName" class="control-label"></label>
+                        <input asp-for="PatientName" class="form-control" required />
+                        <span asp-validation-for="PatientName" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="DoctorId" class="form-label">Doctor Name</label>
+                        <select asp-for="DoctorId" class="form-select" asp-items="ViewBag.Doctors">
+                            <option value="">-- Select a Doctor --</option>
+                        </select>
+                        <span asp-validation-for="DoctorId" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="AppointmentDate" class="control-label"></label>
+                        <input asp-for="AppointmentDate" class="form-control" type="date" required />
+                        <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="StartTime" class="control-label"></label>
+                        <input asp-for="StartTime" class="form-control" type="time" required />
+                        <span asp-validation-for="StartTime" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="EndTime" class="control-label"></label>
+                        <input asp-for="EndTime" class="form-control" type="time" required />
+                        <span asp-validation-for="EndTime" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="TotalFees" class="control-label"></label>
+                        <input asp-for="TotalFees" class="form-control" type="number" step="0.01" required />
+                        <span asp-validation-for="TotalFees" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="PaidFees" class="control-label"></label>
+                        <input asp-for="PaidFees" class="form-control" type="number" step="0.01" required />
+                        <span asp-validation-for="PaidFees" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="RemainingFees" class="control-label"></label>
+                        <input asp-for="RemainingFees" class="form-control" type="number" step="0.01" readonly />
+                        <span asp-validation-for="RemainingFees" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="TotalAppointmentTime" class="control-label"></label>
+                        <input asp-for="TotalAppointmentTime" class="form-control" readonly />
+                        <span asp-validation-for="TotalAppointmentTime" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3 text-center">
+                        <input type="submit" value="Save Changes" class="btn btn-success" />
+                    </div>
+                </form>
+
+                <div class="text-center">
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left-circle"></i> Back to List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,52 @@
+﻿
+@model Doctor_appointments.Models.Doctor
+
+@{
+    ViewData["Title"] = "Delete Doctor";
+}
+
+<h1 class="text-center text-danger mb-4">Delete Doctor</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-lg border-danger">
+            <div class="card-body">
+                <h4 class="card-title text-center text-danger">Are you sure you want to delete this Doctor?</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4 text-secondary fw-bold">Doctor ID</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.DoctorId)</dd>
+
+                    <dt class="col-sm-4 text-secondary fw-bold">Name</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Name)</dd>
+
+                    <dt class="col-sm-4 text-secondary fw-bold">Fees Per Hour</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.FeesPerHour)</dd>
+
+                    <dt class="col-sm-4 text-secondary fw-bold">Mobile Number</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.MobileNumber)</dd>
+
+                    <dt class="col-sm-4 text-secondary fw-bold">Experience</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Experience)</dd>
+
+                    <dt class="col-sm-4 text-secondary fw-bold">Speciality</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Speciality)</dd>
+
+                    <dt class="col-sm-4 text-secondary fw-bold">Code</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Code)</dd>
+                </dl>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <form asp-action="Delete" method="post">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> Confirm Delete
+                        </button>
+                    </form>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="bi bi-arrow-left-circle"></i> Back to List
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
